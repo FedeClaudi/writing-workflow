@@ -9,6 +9,7 @@ If you need to include figures you can keep these in **figures**, the data and s
 Once you're ready to convert your markdown to other format, run `compile.sh` and magic will happen (more details below)
 
 ## Folders
+- **automation**: scripts used in the manuscript generation process
 - **data**: include any data file you might need (e.g. to generate figures)
 - **figures**: save your figures here
 - **paper**: save your `.md` files with the paper content here
@@ -16,6 +17,24 @@ Once you're ready to convert your markdown to other format, run `compile.sh` and
 
 ## .md files
 As stated above, these should be in **paper** and the names should start with a number indicating the order in which the individual `.md` files will be concatenated to produce a single output
+
+## Figures
+You can use scripts in **scripts** to generate the figures you need.
+If you need to combine multiple figures into a larger figure, you can use `automation/compose_figures.py` (this happens by itself when you run `compile.sh`).
+All you need to do is to specify in  `figures/composed_figures.yml` how figures should be combined.
+Entries in the `yml` file should have the structure:
+
+```yaml
+FigTile:
+ - [subplot_title, path/to/sub1.png]
+ - [subplot_title, path/to/sub2.png]
+ ...
+```
+
+This information will be used to combine the various subplots and save a new figure in as `figures/FigTitle.png`.
+To include figures in your paper, in your `.md` files add: `![](../figures/fig.png){ width=600px }`
+
+
 
 ## Producing output
 To concatenate the individual `.md` files and produce a single output run:

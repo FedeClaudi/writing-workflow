@@ -1,3 +1,4 @@
+python automation/compose_figures.py
 
 cd paper
 rm paper.md
@@ -6,7 +7,7 @@ rm paper.md
 echo "generating .md"
 pandoc *.md -o paper.md -t markdown --bibliography=bib.bib --toc --strip-comments
 echo "    ... done"
-python ../count_words.py paper.md
+python ../automation/count_words.py paper.md
 
 
 echo ""
