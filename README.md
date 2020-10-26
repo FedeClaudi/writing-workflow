@@ -35,6 +35,14 @@ This information will be used to combine the various subplots and save a new fig
 To include figures in your paper, in your `.md` files add: `![](../figures/fig.png){ width=600px }`
 
 
+## Automation
+If you need to update all figures, the easiest way is tu run `bash run_all_scripts.sh`.
+This will runn all `.py` scripts into **scripts** (which should generate all the figures you need).
+
+> Remember, to combine individual figures into more complex one, use `automation/compose_figures.py`
+
+The other important automation script is running `compile.sh`, but more about that in a sec.
+
 
 ## Producing output
 To concatenate the individual `.md` files and produce a single output run:
